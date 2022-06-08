@@ -37,7 +37,7 @@ export const Purchased = () => {
 
       <select
         className="select-input"
-        defaultValue={() => getFilms()[0]}
+        defaultValue={selectedFilm}
         onChange={(e) => setSelectedFilm(e.target.value)}
       >
         {getFilms().map((x) => {
