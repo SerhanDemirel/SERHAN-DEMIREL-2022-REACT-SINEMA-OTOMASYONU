@@ -1,0 +1,22 @@
+body{
+  background-image: linear-gradient(270deg ,rgb(216, 5, 5), rgb(95, 0, 0) 50%, rgb(216, 5, 5));
+}
+
+
+.bilet-koltuk {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.Baslik
+{
+  width: 300px ;
+  border-radius: 12px;
+  color:rgb(0, 0, 0);
+  background-color: rgba(252, 252, 252, 0.621);
+
+}
+
+

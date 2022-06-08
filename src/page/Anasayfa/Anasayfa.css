@@ -1,0 +1,29 @@
+.select-input {
+  font-size: 25px;
+  text-align: center;
+  padding: 10px;
+}
+
+.Anaekran {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-btn-div {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.admin-btn {
+  background-color: azure;
+  border: none;
+  margin-right: 60px;
+  font-size: 25px;
+  padding: 5px;
+}
