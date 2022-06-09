@@ -22,17 +22,18 @@ export const Purchased = () => {
     setSelectedFilm(getFilms()[0]);
   }, []); // her halukarda bu fonksiyon bi kere calissin
 
+ 
   return (
     <div className="purchase">
       <select
         className="select-input"
-        defaultValue={1} // 1 otomatik secilmis
+        defaultValue="1" // 1 otomatik secilmis
         onChange={(e) => setSelectedSalon(e.target.value)}
       >
-        <option value={1}>Salon 1</option>
-        <option value={2}>Salon 2</option>
-        <option value={3}>Salon 3</option>
-        <option value={4}>Salon 4</option>
+        <option value="1">Salon 1</option>
+        <option value="2">Salon 2</option>
+        <option value="3">Salon 3</option>
+        <option value="4">Salon 4</option>
       </select>
 
       <select
@@ -51,10 +52,10 @@ export const Purchased = () => {
 
       {satinAlinanlar
         .filter(
-          (x) => x.film.salon === selectedSalon && x.film.filmAdi === selectedFilm
+          (x) => x.film.salon == selectedSalon && x.film.filmAdi == selectedFilm
         )
-        .map((y, index) => {
-          return <PurchasedItem key={index} data={y} />;
+        .map((x) => {
+          return <PurchasedItem key={x} data={x} />;
         })}
     </div>
   );
