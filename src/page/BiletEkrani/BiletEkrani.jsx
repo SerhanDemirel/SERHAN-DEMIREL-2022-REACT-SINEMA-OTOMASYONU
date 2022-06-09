@@ -28,7 +28,7 @@ const BiletEkrani = () => {
   return (
     <div className="BiletEkran">
       <h1 className="Baslik">Cinema ID: {params.id}</h1>
-      <h1 className="Baslik">Cinema Film Adi: {cinema.film}</h1>
+      <h1 className="Baslik">Cinema Film Adi: {cinema.filmAdi}</h1>
       <h1 className="Baslik">Bilet Fiyati: {cinema.fiyat}</h1>
       <h1 className="Baslik">Fiyat: {seciliKoltuklar.length * cinema.fiyat}</h1>
       <div className="bilet-koltuk">
