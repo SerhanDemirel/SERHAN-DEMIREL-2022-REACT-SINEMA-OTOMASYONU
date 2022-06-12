@@ -11,23 +11,22 @@ export const Purchased = () => {
   const getFilms = () => {
     let arr = [];
     satinAlinanlar.forEach((element) => {
-      if (arr.indexOf(element.film.filmAdi) === -1) { // index of lisetedeki adresi -1 dondururse yok demek.yoksa array push ekliyoruz.
+      if (arr.indexOf(element.film.filmAdi) === -1) { 
         arr.push(element.film.filmAdi);
       }
     });
     return arr;
   };
 
-  useEffect(() => {  // icindeki durum degisirse o zaman calisiyor.Component render olunca use effect calisiyor.koseli paranteze bisi yazinca o calisiyor
+  useEffect(() => { 
     setSelectedFilm(getFilms()[0]);
-  }, []); // her halukarda bu fonksiyon bi kere calissin
-
+  }, []); 
  
   return (
     <div className="purchase">
       <select
         className="select-input"
-        defaultValue="1" // 1 otomatik secilmis
+        defaultValue="1" 
         onChange={(e) => setSelectedSalon(e.target.value)}
       >
         <option value="1">Salon 1</option>
@@ -42,7 +41,7 @@ export const Purchased = () => {
         onChange={(e) => setSelectedFilm(e.target.value)}
       >
         {getFilms().map((x) => {
-          return ( // her x kadar option ekliyoruz.Map icindeki eleman kadar donuyor.
+          return ( 
             <option key={x} value={x}>
               {x}
             </option>
