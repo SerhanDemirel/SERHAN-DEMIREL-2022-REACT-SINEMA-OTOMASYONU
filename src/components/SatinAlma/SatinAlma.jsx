@@ -12,10 +12,10 @@ export const SatinAlma = (props) => {
   const [kredikart, setKredikart] = useState("");
 
 
-  const { seciliKoltuklar, cinema } = props; // propsun icindeki secili koltuklarla cinema isimli datalri getir object destructing
+  const { seciliKoltuklar, cinema } = props; 
 
-  let dispatch = useDispatch(); //reduxtaki reducerlara erismek icin.
-  let navigate = useNavigate(); // sayfayi yonlendiriyor.
+  let dispatch = useDispatch(); 
+  let navigate = useNavigate(); 
 
   const satinAlClick = () => {
     if (name !== "" && surname !== "" && btc !== "" && eposta !== "") {
@@ -41,7 +41,7 @@ export const SatinAlma = (props) => {
 
       alert(eposta + " adli mail adresine bilet detaylariniz iletilmistir!");
 
-      navigate("/"); // anafayfaya yonlendiriyor .
+      navigate("/"); 
     } else {
       alert("Bos Alan Birakilamaz!");
     }
