@@ -34,7 +34,7 @@ const Anasayfa = () => {
       {
         cinemaList
           .filter((x) => x.salon === selectedSalon)
-          ?.map((cinema ) => { // doncegi her elemani cinema olarak ariyor.Index olarak da siraliyor.
+          ?.map((cinema ) => { 
             return <FilmListItem key={cinema.id} cinema={cinema} />;
           })}
       
