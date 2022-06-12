@@ -11,10 +11,10 @@ export const userSlice = createSlice({
       let satinAlinanKoltuklar = [...action.payload.koltuklar];
 
       let tmpKoltuklar = satinAlinanKoltuklar.map((element) => {
-        // satinalinankoltuklar liste element foreach gibi.
-        let tmp = { ...element }; //elementin icindeki seyleri tmp e atiyoruz
-        tmp.secildi = 0; //satin alindiysa  secildi 0 olmasi gerekmekte.
-        tmp.alinabilir = 0; // ayni sekilde
+       
+        let tmp = { ...element }; 
+        tmp.secildi = 0; 
+        tmp.alinabilir = 0; 
         return tmp;
       });
 
@@ -24,38 +24,37 @@ export const userSlice = createSlice({
         film: film,
       };
 
-      //satin alinanlara ekledik
+      
       state.purchased.push(newPurchase);
 
       let newKoltuklar = film.koltuklar.map((item) => {
-        // satin alinan koltuklar tek bi koltuk olmayabilir film koltuklari dolasiyoruz eger uyusuyorsa guncelliyoz
-        // tum koltuklari dolasiyoruz
-        let item2 = tmpKoltuklar.find((i2) => i2.id === item.id); //eger temp koltuklarda var ise onu update et.
-        return item2 ? { ...item, ...item2 } : item; // item2 bulunuyosa o zaman item ve item 2 getiriliyor.DEgilse item geliyor.
+        
+        let item2 = tmpKoltuklar.find((i2) => i2.id === item.id); 
+        return item2 ? { ...item, ...item2 } : item; 
       });
 
-      film.koltuklar = newKoltuklar; // koltuklar guncelendi
+      film.koltuklar = newKoltuklar; 
 
       let guncellenmisFilmler = state.cinemaData.map((x) => {
-        //son olarak da butun filmler guncellenmeli
+       
         if (x.id === film.id) {
-          let tmp = { ...film };// icindeki objeler olsun diye.
+          let tmp = { ...film };
           return tmp;
         }
         return x;
       });
 
-      state.cinemaData = guncellenmisFilmler; //global degiskene state i esitliyoruz.
+      state.cinemaData = guncellenmisFilmler;
     },
 
     click: (state, action) => {
-      //state suanki kisim,action cagirinca gelicek kisim payload action icindeki objeler
-      //film id
-      // koltuk id
+      
+    
+      
 
-      let filmId = action.payload.filmId; //once film id sini alcaz
-      let film = state.cinemaData.find((x) => x.id === filmId); // filmi buluyoruz ,xx lambda ifadesi
-      let koltuk = { ...action.payload.koltuk }; // bir koltuga erisiyoruz
+      let filmId = action.payload.filmId; 
+      let film = state.cinemaData.find((x) => x.id === filmId); 
+      let koltuk = { ...action.payload.koltuk }; 
 
       const koltukEskiHali = film.koltuklar.find((x) => x.id === koltuk.id);
 
@@ -64,11 +63,11 @@ export const userSlice = createSlice({
 
         let newKoltukListesi = film.koltuklar.map((x) => {
           if (x.id === koltuk.id) {
-            // tikladigim kisim koltuga esit ise
-            let tmp = { ...x, secildi: koltuk.secildi }; //secildi fieldini koltuk.secildi olrak degistir 0 sa 1 1 se 0
-            return tmp; //guncel halini dondur
+            
+            let tmp = { ...x, secildi: koltuk.secildi }; 
+            return tmp; 
           }
-          return x; // secilmiyosa direk x i dondur
+          return x; 
         });
 
         film.koltuklar = newKoltukListesi;
@@ -78,7 +77,7 @@ export const userSlice = createSlice({
             let tmp = { ...film };
             return tmp;
           }
-          return x; // tekrar guncelle kismi
+          return x; 
         });
 
         state.cinemaData = guncellenmisFilmler;
@@ -87,10 +86,7 @@ export const userSlice = createSlice({
   },
 });
 
-export const { click, satinAl } = userSlice.actions; // reducerlari disari export etmeliyiz. YAzip bisi eklemezsek erisemeyiz
+export const { click, satinAl } = userSlice.actions; 
 export default userSlice.reducer;
 
 
-//map metodu dizideki butun elemanlari islemden gecirmemizi sagliyor . 
-// find metodu filteri benzer.Dizi icindeki  kosula uygun olan ilk elemani seciyoruz.
-// filter metodu filtreler.10 dan buyuk olanalr gelsin diyoz mesela onlar gelir.Ama find da 10 dan buyuk dersek ilk 10 dan buyuk deger gelir.
