@@ -7,22 +7,22 @@ import { click } from "../../store/cinema";
 import "./BiletEkrani.css";
 
 const BiletEkrani = () => {
-  let params = useParams(); //url deki paramatreleri alabilmek icin  param.id sadece yani
+  let params = useParams(); 
 
-  let dispatch = useDispatch(); //reduxtaki reducerlara erismek icin.
+  let dispatch = useDispatch(); 
 
   const cinema = useSelector(
     (
-      state // use selecctor global degiskene erisebilmek icin
-    ) => state.cinema.cinemaData.find((i) => i.id === Number(params.id)) /// bilet erkaninda olan cinamaya erismek icin sadece
+      state 
+    ) => state.cinema.cinemaData.find((i) => i.id === Number(params.id)) 
   );
 
   const seciliKoltuklar = cinema.koltuklar.filter((x) => {
-    return x.secildi === 1; // x dedigimiz koltuklar lisetinde bir adet koltuk.filter o koltuklari foreach gibi ariyor.x.secildi 1 e esit olanlari  filtreleyip getir diyoruz.
+    return x.secildi === 1; 
   });
 
   const onKoltukClick = (koltuk) => {
-    dispatch(click({ filmId: Number(params.id), koltuk: koltuk }));// verdigimiz paramtre
+    dispatch(click({ filmId: Number(params.id), koltuk: koltuk }));
   };
 
   return (
@@ -33,7 +33,7 @@ const BiletEkrani = () => {
       <h1 className="Baslik">Fiyat: {seciliKoltuklar.length * cinema.fiyat}</h1>
       <div className="bilet-koltuk">
         {cinema.koltuklar.map((x, index) => {
-          // map ile tekrar dondurdugumuz icin kul
+        
           return (
             <Koltuk
               classname="koltuklar"
